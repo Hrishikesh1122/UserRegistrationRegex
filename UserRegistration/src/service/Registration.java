@@ -17,7 +17,7 @@ public class Registration {
 	/**
 	 * Gets the first name from console 
 	 * Checks if it matches our regex pattern
-	 * If it matches set the first name of object user1 to entered first nmae
+	 * If it matches set the first name of object user1 to entered first name
 	 * If not instruct what a correct name is and take first name again
 	 */
 	public static void getFirstName() {
@@ -34,9 +34,28 @@ public class Registration {
 		}
 	}
 	
+	/**
+	 * Gets the last name from console 
+	 * Checks if it matches our regex pattern
+	 * If it matches set the last name of object user1 to entered last name
+	 * If not instruct what a correct name is and take last name again
+	 */
+	public static void getLastName() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter last name");
+		String lastName= sc.next();
+		boolean check = Pattern.matches("[A-Z]+[a-z]{2,}", lastName);
+		if(check) {
+			user1.setLastName(lastName);
+		}
+		else {
+			System.out.println("First name starts with Cap and has minimum 3 characters");
+			getLastName();
+		}
+	}
 	public static void main(String[] args) {
 		getFirstName();
-	
+		getLastName();
 	}
 
 }
