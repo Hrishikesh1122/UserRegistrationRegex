@@ -73,10 +73,29 @@ public class Registration {
 			getEmail();
 		}
 	}
+	
+	/**
+	 * Checks for the correct phone number
+	 * If correct assigns it to mobileNumber of object User
+	 */
+	public static void getPhoneNumber() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your phone number");
+		String phone= sc.next();
+		boolean check = Pattern.matches("^[1-9][0-9]\s[1-9]{10}$", phone);
+		if(check) {
+			user1.setMobileNum(phone);
+		}
+		else {
+			System.out.println("Phone number invalid , enter correct number");
+			getPhoneNumber();
+		}
+	}
 	public static void main(String[] args) {
 		getFirstName();
 		getLastName();
 		getEmail();
+		getPhoneNumber();
 	}
 
 }
