@@ -53,9 +53,30 @@ public class Registration {
 			getLastName();
 		}
 	}
+	
+	/**
+	 * Gets the email address from console 
+	 * Checks if it matches our regex pattern
+	 * If it matches set the email of object user1 to entered email address
+	 * If not tells user to enter email address again
+	 */
+	public static void getEmail() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Email Address");
+		String email= sc.next();
+		boolean check = Pattern.matches("^[a-z0-9.+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$", email);
+		if(check) {
+			user1.setLastName(email);
+		}
+		else {
+			System.out.println("Email invalid , enter correct email");
+			getEmail();
+		}
+	}
 	public static void main(String[] args) {
 		getFirstName();
 		getLastName();
+		getEmail();
 	}
 
 }
