@@ -66,7 +66,7 @@ public class Registration {
 		String email= sc.next();
 		boolean check = Pattern.matches("^[a-z0-9.+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$", email);
 		if(check) {
-			user1.setLastName(email);
+			user1.setEmail(email);
 		}
 		else {
 			System.out.println("Email invalid , enter correct email");
