@@ -82,7 +82,7 @@ public class Registration {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your phone number");
 		String phone= sc.next();
-		boolean check = Pattern.matches("^[1-9][0-9]\s[1-9]{10}$", phone);
+		boolean check = Pattern.matches("^[1-9][0-9][1-9]{10}$", phone);
 		if(check) {
 			user1.setMobileNum(phone);
 		}
@@ -91,11 +91,29 @@ public class Registration {
 			getPhoneNumber();
 		}
 	}
+	/**
+	 * Checks for the correct password format
+	 * If correct assigns it to password of object User
+	 */
+	public static void getPassword() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your password");
+		String password= sc.next();
+		boolean check = Pattern.matches("[a-zA-z0-9!@#$%^&*()_+=-{};':<>,./?~`]{8,}", password);
+		if(check) {
+			user1.setPassword(password);
+		}
+		else {
+			System.out.println("Password invalid , enter again ");
+			getPassword();
+		}
+	}
 	public static void main(String[] args) {
 		getFirstName();
 		getLastName();
 		getEmail();
 		getPhoneNumber();
+		getPassword();
 	}
 
 }
